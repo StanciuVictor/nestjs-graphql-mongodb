@@ -11,6 +11,11 @@ export class LessonService {
     @InjectRepository(Lesson) private lessonRepository: Repository<Lesson>,
   ) {}
 
+  // Get lesson
+  async getLesson(id: string): Promise<Lesson> {
+    return this.lessonRepository.findOne({ id });
+  }
+
   // Create lesson and save it to the database
   async createLesson(
     name: string,
