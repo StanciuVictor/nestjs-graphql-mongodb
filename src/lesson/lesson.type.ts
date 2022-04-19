@@ -8,6 +8,7 @@ export class LessonType {
   //* Define class properties (fields of the Lesson)
 
   // For ID, it's a good idea to define the type explicitly
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @Field((type) => ID)
   id: string;
 
