@@ -1,6 +1,6 @@
 //* A resolver is the equivalent for a Controller in RESTful services. It handles incoming requests and then returns the response
 
-import { Query, Resolver } from '@nestjs/graphql';
+import { Mutation, Query, Resolver } from '@nestjs/graphql';
 import { LessonType } from './lesson.type';
 
 // Specify what this Resolver actually resolves => LessonType
@@ -18,5 +18,11 @@ export class LessonResolver {
       startDate: new Date().toISOString(),
       endDate: new Date().toISOString(),
     };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @Mutation((returns) => LessonType)
+  createLesson() {
+    /**/
   }
 }
