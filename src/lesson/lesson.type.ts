@@ -15,6 +15,7 @@ export class LessonType {
   name: string;
 
   @Field()
+  // String because we will use .toISOString method
   startDate: string;
 
   @Field()
