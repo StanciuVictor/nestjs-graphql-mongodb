@@ -19,6 +19,13 @@ export class LessonResolver {
     return this.lessonService.getLesson(id);
   }
 
+  // Returns an array of Lessons
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @Query((returns) => [LessonType])
+  lessons() {
+    return this.lessonService.getLessons();
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @Mutation((returns) => LessonType)
   createLesson(
