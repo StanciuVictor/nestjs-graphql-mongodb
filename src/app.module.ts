@@ -1,6 +1,15 @@
+import { ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
 
 @Module({
-  imports: [],
+  imports: [
+    GraphQLModule.forRoot({
+      //* Provide any options regarding GraphQL
+      driver: ApolloDriver,
+      // Tells NestJS to save the schema in memory and regenerate it every time the app is started
+      autoSchemaFile: true,
+    }),
+  ],
 })
 export class AppModule {}
