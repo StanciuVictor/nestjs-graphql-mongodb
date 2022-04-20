@@ -10,6 +10,12 @@ import { StudentType } from './student.type';
 export class StudentResolver {
   constructor(private studentService: StudentService) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @Query((returns) => StudentType)
+  student(@Args('id') id: string) {
+    return this.studentService.getStudentById(id);
+  }
+
   // Returns an array of Students
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @Query((returns) => [StudentType])
