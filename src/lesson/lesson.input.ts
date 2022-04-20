@@ -1,7 +1,7 @@
 // This is used for data validation - works like a DTO
 
-import { Field, InputType } from '@nestjs/graphql';
-import { IsDateString, MinLength } from 'class-validator';
+import { Field, ID, InputType } from '@nestjs/graphql';
+import { IsDateString, IsUUID, MinLength } from 'class-validator';
 
 @InputType()
 export class CreateLessonInput {
@@ -16,4 +16,8 @@ export class CreateLessonInput {
   @Field()
   @IsDateString()
   endDate: string;
+
+  @Field(() => [ID], { defaultValue: [] })
+  @IsUUID('4', { each: true })
+  students: string[];
 }

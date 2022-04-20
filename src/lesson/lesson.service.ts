@@ -24,13 +24,13 @@ export class LessonService {
 
   // Create lesson and save it to the database
   async createLesson(createLessonInput: CreateLessonInput): Promise<Lesson> {
-    const { name, startDate, endDate } = createLessonInput;
+    const { name, startDate, endDate, students } = createLessonInput;
     const lesson = this.lessonRepository.create({
       id: uuid(),
       name,
       startDate,
       endDate,
-      students: [],
+      students,
     });
 
     // Save the lesson to the db
