@@ -36,4 +36,16 @@ export class StudentService {
     // Save student to database
     return this.studentRepository.save(student);
   }
+
+  // Given the ids, return all those students
+  async getManyStudents(studentIds: string[]): Promise<Student[]> {
+    return this.studentRepository.find({
+      //* Pute MongoDB syntax
+      where: {
+        id: {
+          $in: studentIds,
+        },
+      },
+    });
+  }
 }
