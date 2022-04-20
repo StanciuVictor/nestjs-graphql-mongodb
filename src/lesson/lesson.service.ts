@@ -30,9 +30,21 @@ export class LessonService {
       name,
       startDate,
       endDate,
+      students: [],
     });
 
     // Save the lesson to the db
+    return this.lessonRepository.save(lesson);
+  }
+
+  // Enroll students to a lesson
+  async assignStudentsToLesson(
+    lessonId: string,
+    studentIds: string[],
+  ): Promise<Lesson> {
+    const lesson = await this.lessonRepository.findOne({ id: lessonId });
+    // Keep already enrolled students and enroll new students
+    lesson.students = [...lesson.students, ...studentIds];
     return this.lessonRepository.save(lesson);
   }
 }

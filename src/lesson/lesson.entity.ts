@@ -19,4 +19,8 @@ export class Lesson {
 
   @Column()
   endDate: string;
+
+  // Will hold an array of student ids that take this lesson
+  @Column()
+  students: string[];
 }

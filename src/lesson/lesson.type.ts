@@ -1,6 +1,7 @@
 // Type is a GraphQL concept and must be defined
 
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { StudentType } from '../student/student.type';
 
 // The type will be named LessonType by default (class name). We overwrite it by specifiyng the name in the decorator => Lesson
 @ObjectType('Lesson')
@@ -21,4 +22,8 @@ export class LessonType {
 
   @Field()
   endDate: string;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @Field((type) => [StudentType])
+  students: string[];
 }
